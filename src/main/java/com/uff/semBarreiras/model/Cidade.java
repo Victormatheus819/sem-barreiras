@@ -9,6 +9,7 @@ package com.uff.semBarreiras.model;
  *
  * @author victo
  */
+import java.io.Serializable;
 import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.Column;
@@ -17,11 +18,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
 import lombok.Data;
 @Entity
 @Data
 @Table(name= "cidade")
-public class Cidade {
+public class Cidade implements Serializable {
  
  @Id
  @Column(name= "nome")
@@ -29,6 +31,8 @@ public class Cidade {
  private  Integer id;
  @Column(name= "nome")
  private  String nome;
+ @ManyToOne
+ @JoinColumn(name= "id_estado")
  private  Estado estado;
     
 }
