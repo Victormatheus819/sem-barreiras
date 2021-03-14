@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.uff.semBarreiras.model;
 
-/**
- *
- * @author victo
- */
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Id;
@@ -28,26 +19,37 @@ import lombok.Data;
 @Data
 @Table(name= "candidato")
 public class Candidato implements Serializable {
-@Id
-@Column(name= "nome")
-@GeneratedValue( strategy = GenerationType.IDENTITY )    
-private Integer id ;
-@Column(name= "nome")
-private String nome ;
-@Column(name= "telefone")
-private String telefone ;
-@Column(name= "email")
-private String email ;
-@Column(name= "curriculo")
-private String curriculo ;
-@ManyToMany
- @JoinTable( name = "candidato_x_deficiencia", joinColumns = @JoinColumn( name = "id_candidato" ), inverseJoinColumns = @JoinColumn( name = "id_deficiencia" ) )
-private List<Deficiencia> deficiencias ;
-@ManyToOne
- @JoinColumn(name= "id_estado")
- private Estado estado ;
-@ManyToOne
- @JoinColumn(name="id_escolaridade")
-private Escolaridade escolaridade;
+    
+    @Id
+    @Column(name= "nome")
+    @GeneratedValue( strategy = GenerationType.IDENTITY )    
+    private Integer id ;
 
+    @Column(name= "nome")
+    private String nome ;
+
+    @Column(name= "telefone")
+    private String telefone ;
+
+    @Column(name= "email")
+    private String email ;
+
+    @Column(name= "curriculo")
+    private String curriculo ;
+
+    @ManyToMany
+    @JoinTable( name = "candidato_x_deficiencia", joinColumns = @JoinColumn( name = "id_candidato" ), inverseJoinColumns = @JoinColumn( name = "id_deficiencia" ) )
+    private List<Deficiencia> deficiencias ;
+
+    @ManyToOne
+    @JoinColumn(name= "id_estado")
+    private Estado estado ;
+
+    @ManyToOne
+    @JoinColumn(name="id_escolaridade")
+    private Escolaridade escolaridade;
+
+    @ManyToMany
+    @JoinTable( name = "candidato_x_vaga", joinColumns = @JoinColumn( name = "id_candidato" ), inverseJoinColumns = @JoinColumn( name = "id_vaga" ) )
+    private List<Vaga> vagas;
 }

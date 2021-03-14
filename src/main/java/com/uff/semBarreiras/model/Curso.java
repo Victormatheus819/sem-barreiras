@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.uff.semBarreiras.model;
 
 import java.io.Serializable;
@@ -19,29 +14,29 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
 
-/**
- *
- * @author victo
- */
 @Entity
 @Data
 @Table(name= "curso")
 public class Curso implements Serializable {
-@Id
-@Column(name= "id")
-@GeneratedValue( strategy = GenerationType.IDENTITY )    
-private Integer id ;
-@Column(name= "nome")
-private String nome ;
-@Column(name= "descricao")
-private String descricao ;
-@Column(name= "hyperLink")
-private String hyperLink ;
-@Column(name= "preco")
-private Double preco ;
-@ManyToMany
- @JoinTable( name = "vaga_x_curso", joinColumns = @JoinColumn( name = "id_curso" ), inverseJoinColumns = @JoinColumn( name = "id_vaga" ) )
- private List<Vaga> vaga ;
+    
+    @Id
+    @Column(name= "id")
+    @GeneratedValue( strategy = GenerationType.IDENTITY )    
+    private Integer id ;
 
+    @Column(name= "nome")
+    private String nome ;
 
+    @Column(name= "descricao")
+    private String descricao ;
+
+    @Column(name= "hyperLink")
+    private String hyperLink ;
+
+    @Column(name= "preco")
+    private Double preco ;
+
+    @ManyToMany
+    @JoinTable( name = "vaga_x_curso", joinColumns = @JoinColumn( name = "id_curso" ), inverseJoinColumns = @JoinColumn( name = "id_vaga" ) )
+    private List<Vaga> vagas ;
 }

@@ -38,5 +38,5 @@ public class Empresa implements Serializable{
     
     @ManyToOne
     @JoinColumn( name = "id_cidade")
-    private Cidade cidade
+    private Cidade cidade;
 }

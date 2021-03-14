@@ -25,6 +25,9 @@ public class Vaga implements Serializable {
     @Column( name = "id" )
     private Integer id;
     
+    @Column( name = "resumo" )
+    private String resumo;
+    
     @Column( name = "data_criacao" )
     private Date dataCriacao;
     
@@ -70,5 +73,9 @@ public class Vaga implements Serializable {
     
     @ManyToMany
     @JoinTable( name = "vaga_x_deficiencia", joinColumns = @JoinColumn( name = "id_vaga" ), inverseJoinColumns = @JoinColumn( name = "id_deficiencia" ) )
-    private List<Deficiencia> deficiencias;  
+    private List<Deficiencia> deficiencias;
+    
+    @ManyToMany
+    @JoinTable( name = "candidato_x_vaga", joinColumns = @JoinColumn( name = "id_vaga" ), inverseJoinColumns = @JoinColumn( name = "id_candidato" ) )
+    private List<Candidato> candidatos;
 }

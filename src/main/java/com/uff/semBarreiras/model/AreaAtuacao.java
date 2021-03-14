@@ -13,6 +13,7 @@ import lombok.Data;
 @Table(name="area_atuacao")
 @Data
 public class AreaAtuacao implements Serializable {
+    
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     @Column( name = "id" )
@@ -21,6 +22,6 @@ public class AreaAtuacao implements Serializable {
     @Column( name = "descricao" )
     private String descricao;
     
-    @Column( name = "grau" )
-    private Integer grau;
+    @Column( name = "nome" )
+    private Integer nome;
 }
