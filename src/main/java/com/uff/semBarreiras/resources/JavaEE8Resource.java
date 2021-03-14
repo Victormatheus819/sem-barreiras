@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject5.resources;
+package com.uff.semBarreiras.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

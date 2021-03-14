@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject5;
+package com.uff.semBarreiras;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
